@@ -7,6 +7,11 @@ public class UsualPerson implements Person {
 
     public UsualPerson(){}
 
+    public UsualPerson(String name,  int age) {
+        this.name = name;
+        this.age = age;
+    }
+
     public UsualPerson(String name, Country country, int age) {
         this.name = name;
         this.country = country;
