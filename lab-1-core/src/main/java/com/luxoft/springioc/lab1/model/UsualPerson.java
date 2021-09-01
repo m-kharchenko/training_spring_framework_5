@@ -1,5 +1,7 @@
 package com.luxoft.springioc.lab1.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.List;
 
 public class UsualPerson implements Person {
@@ -12,7 +14,7 @@ public class UsualPerson implements Person {
         this.age = age;
     }
 
-    public UsualPerson(String name, Country country, int age) {
+    public UsualPerson(String name, int age, Country country) {
         this.name = name;
         this.country = country;
         this.age = age;
