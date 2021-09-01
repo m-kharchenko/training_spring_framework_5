@@ -5,6 +5,14 @@ import java.util.List;
 public class UsualPerson implements Person {
     private int id;
 
+    public UsualPerson(){}
+
+    public UsualPerson(String name, Country country, int age) {
+        this.name = name;
+        this.country = country;
+        this.age = age;
+    }
+
     private String name;
 
     private Country country;
