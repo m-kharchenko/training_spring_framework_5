@@ -5,15 +5,5 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="person" class="com.luxoft.springioc.lab2.model.UsualPerson">
-        <property name="name" value="Ivan Ivanov"/>
-        <property name="age" value="35"/>
-        <property name="country" ref="country"/>
-    </bean>
-
-    <bean id="country" class="com.luxoft.springioc.lab2.model.Country">
-        <property name="id" value="1"/>
-        <property name="name" value="Russia"/>
-        <property name="codeName" value="RU"/>
-    </bean>
+    <import resource="file:src/main/resources/application-context.xml"/>
 </beans>
