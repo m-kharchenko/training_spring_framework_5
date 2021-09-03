@@ -12,6 +12,15 @@
 	<app:aspectj-autoproxy />
 
 	<bean id="loggingAspect" class="com.luxoft.springaop.lab5.aspects.LoggingAspect" />
+	<bean id="validationLoggingAspect" class="com.luxoft.springaop.lab5.aspects.ValidationLoggingAspect" />
+	<bean id="validationAspect" class="com.luxoft.springaop.lab5.aspects.ValidationAspect" />
+
+
+	<bean id="country" class="com.luxoft.springaop.lab5.model.CountryImpl">
+		<property name="id" value="1" />
+		<property name="name" value="Russia" />
+		<property name="codeName" value="RU" />
+	</bean>
 
 	<bean id="person" class="com.luxoft.springaop.lab5.model.UsualPerson">
 		<property name="name" value="John Smith" />
@@ -27,10 +36,6 @@
 		</property>
 	</bean>
 
-	<bean id="country" class="com.luxoft.springaop.lab5.model.CountryImpl">
-		<property name="id" value="1" />
-		<property name="name" value="Russia" />
-		<property name="codeName" value="RU" />
-	</bean>
+
 
 </beans>

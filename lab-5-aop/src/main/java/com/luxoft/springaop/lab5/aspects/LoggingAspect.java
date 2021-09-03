@@ -6,8 +6,10 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.core.annotation.Order;
 
 @Aspect
+@Order(1)
 public class LoggingAspect {
 	private final static Logger LOG = Logger.getLogger(LoggingAspect.class.getName());
 
@@ -15,7 +17,7 @@ public class LoggingAspect {
 	public void setterMethod() {
 	}
 
-	@Around("setterMethod() ")
+	@Around("setterMethod()")
 	public Object setterLogger(ProceedingJoinPoint thisJoinPoint) throws Throwable {
 		String methodName = thisJoinPoint.getSignature().getName();
 		Object[] methodArgs = thisJoinPoint.getArgs();
