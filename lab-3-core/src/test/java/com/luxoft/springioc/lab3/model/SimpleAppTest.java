@@ -10,7 +10,7 @@ import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ImportResource;
 import org.springframework.context.support.AbstractApplicationContext;
-
+@ImportResource("classpath:application-context.xml")
 public class SimpleAppTest {
 	
 	private AbstractApplicationContext context;
