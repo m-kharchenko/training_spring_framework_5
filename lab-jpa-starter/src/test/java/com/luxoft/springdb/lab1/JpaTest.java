@@ -19,7 +19,7 @@ import com.luxoft.springdb.lab1.model.Country;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
-public class JdbcTest{
+public class JpaTest {
 
 	@Autowired
 	private CountryDao countryDao;

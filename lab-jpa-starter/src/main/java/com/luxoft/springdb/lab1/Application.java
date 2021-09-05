@@ -15,8 +15,13 @@ public class Application {
         CountryDao countryDao = (CountryDao) run.getBean("countryDao");
         countryDao.loadCountries();
         System.out.println("list_size = " + countryDao.getCountryList().size());
-        System.out.println("country = " + getCountryByName("Russian Federation",countryDao));
-        System.out.println("country = " + getCountryByName("Russian",countryDao));
+        System.out.println(countryDao.getCountryList());
+        System.out.println("country list start with = " + countryDao.getCountryListStartWith("A"));
+        System.out.println("country by code name =" + countryDao.getCountryByCodeName("CA"));
+        System.out.println("country = " + getCountryByName("Russian Federation", countryDao));
+        System.out.println("country does not exist = " + getCountryByName("Russian", countryDao));
+        countryDao.updateCountryName("RU","Russian");
+        System.out.println("country after update = " + getCountryByName("Russian", countryDao));
     }
 
     private static Country getCountryByName(String countryName, CountryDao countryDao) {
@@ -24,7 +29,7 @@ public class Application {
             return countryDao.getCountryByName(countryName);
         } catch (CountryNotFoundException e) {
             e.printStackTrace();
-            System.out.println("Country with name = '"+countryName+"' not found");
+            System.out.println("Country with name = '" + countryName + "' not found");
             return null;
         }
     }
