@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.luxoft.springdb.lab1.dao.CountryNotFoundException;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class JpaTest {
     @Before
     public void setUp() throws Exception {
         initExpectedCountryLists();
-        countryDao.loadCountries();
+       // countryDao.loadCountries();
     }
 
     
@@ -59,7 +60,7 @@ public class JpaTest {
 
     @Test
     @DirtiesContext
-    public void testCountryChange() {
+    public void testCountryChange() throws CountryNotFoundException {
         countryDao.updateCountryName("RU", "Russia");
         assertEquals(countryWithChangedName, countryDao.getCountryByCodeName("RU"));
     }
