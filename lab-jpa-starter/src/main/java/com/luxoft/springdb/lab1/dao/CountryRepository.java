@@ -1,11 +1,11 @@
 package com.luxoft.springdb.lab1.dao;
 
 import com.luxoft.springdb.lab1.model.Country;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface CountryRepository extends CrudRepository<Country,Integer> {
+public interface CountryRepository extends JpaRepository<Country,Integer> {
 
     List<Country> findAll();
 
