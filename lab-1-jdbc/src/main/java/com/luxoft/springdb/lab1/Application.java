@@ -13,7 +13,6 @@ public class Application {
     public static void main(String[] args) {
         ConfigurableApplicationContext run = SpringApplication.run(Application.class, args);
         CountryDao countryDao = (CountryDao) run.getBean("countryDao");
-        countryDao.loadCountries();
         System.out.println("list_size = " + countryDao.getCountryList().size());
         System.out.println("country = " + getCountryByName("Russian Federation",countryDao));
         System.out.println("country = " + getCountryByName("Russian",countryDao));
