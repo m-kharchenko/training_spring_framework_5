@@ -31,9 +31,11 @@ public class CountryDao {
         return countryRepository.findByNameStartingWith(name);
     }
 
-    public void updateCountryName(String codeName, String newCountryName) {
+    public void updateCountryName(String codeName, String newCountryName) throws CountryNotFoundException {
         Country country = countryRepository.findByCodeName(codeName);
-        if (country != null) {
+        if (country == null) {
+            throw new CountryNotFoundException();
+        }else {
             country.setName(newCountryName);
             countryRepository.save(country);
         }
@@ -57,5 +59,22 @@ public class CountryDao {
             throw new CountryNotFoundException();
         }
         return countryList.get(0);
+    }
+
+    public Country getCountryById(Integer id) throws CountryNotFoundException {
+        return countryRepository.findById(id).orElseThrow(() -> new CountryNotFoundException());
+    }
+
+    public Country saveCountry(Country country) {
+        return countryRepository.save(country);
+    }
+
+    public void deleteCountry(Country country) {
+        countryRepository.delete(country);
+    }
+
+    public Country loadCountryFromDbByAnyPojoField(Country country) throws CountryNotFoundException {
+        Country countryInDb = getCountryByCodeName(country.getCodeName());
+        return countryInDb == null ? getCountryByName(country.getName()) : countryInDb;
     }
 }
