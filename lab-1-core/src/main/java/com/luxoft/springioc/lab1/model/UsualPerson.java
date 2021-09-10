@@ -1,9 +1,24 @@
 package com.luxoft.springioc.lab1.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import java.util.List;
 
 public class UsualPerson implements Person {
     private int id;
+
+    public UsualPerson(){}
+
+    public UsualPerson(String name,  int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public UsualPerson(String name, int age, Country country) {
+        this.name = name;
+        this.country = country;
+        this.age = age;
+    }
 
     private String name;
 
